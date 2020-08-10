@@ -2,10 +2,21 @@ const puppeteer = require('puppeteer');
 
 // open a browser and direct the page to google 
 // use headless and slowMo for easier debugging
-(async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 });
-    // console.info(browser);
-    const page = await browser.newPage();
-    await page.goto('https://www.google.com');
-    await browser.close();
-})();
+
+const screenshot = 'amazon_nyan_cat_pullover.png';
+try {
+    (async () => {
+        const browser = await puppeteer.launch({ headless: false});
+        // console.info(browser);
+        const page = await browser.newPage();
+    
+        await page.setViewport({ width: 1280, height: 800 })
+        await page.goto('https://www.google.com')
+        await page.type('.gLFyf', 'cute dogs')
+        await page.click('input.RNmpXc')
+        await page.waitForNavigation()
+        await browser.close()
+    })();
+} catch (err) {
+    console.log(err)
+}
