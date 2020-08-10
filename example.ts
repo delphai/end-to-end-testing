@@ -15,6 +15,7 @@ try {
         await page.type('.gLFyf', 'cute dogs')
         await page.click('input.RNmpXc')
         await page.waitForNavigation()
+        await page.screenshot({ path: 'result.png' })
         await browser.close()
     })();
 } catch (err) {
