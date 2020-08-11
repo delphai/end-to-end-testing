@@ -13,7 +13,14 @@ try {
         await page.type('[type=password]', '852r456d!Q')
         await page.click('button')
         await page.waitForSelector('.toolbar-mylist-link')
-        await page.screenshot({ path: 'logIn.png' })
+        await page.screenshot({ path: 'login.png' })
+
+        // search
+        await page.type('.d-component-search-input', 'green energy')
+        await page.click('.anticon-search')
+        await page.waitForSelector('.main-container');
+        await page.screenshot({ path: 'searchResult.png' })
+
         await browser.close()
     })();
 } catch(err) {
