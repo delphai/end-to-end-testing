@@ -3,7 +3,6 @@ const puppeteer = require('puppeteer');
 // open a browser and direct the page to google 
 // use headless and slowMo for easier debugging
 
-const screenshot = 'amazon_nyan_cat_pullover.png';
 try {
     (async () => {
         const browser = await puppeteer.launch({ headless: false});
