@@ -5,7 +5,9 @@ describe('Google', () => {
     await page.goto('https://google.com');
   });
 
-  it('should be titled "Google"', async () => {
-    await expect(page.title()).resolves.toMatch('Google');
-  });
+  test('should search', async () => {
+    await page.type('.gLFyf', 'cute dogs')
+    await page.click('input.RNmpXc')
+    await page.waitForNavigation()
+  }, timeout);
 });
