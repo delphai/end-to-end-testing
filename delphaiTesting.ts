@@ -23,20 +23,26 @@ try {
 
         // open fliter 
         await page.click('[type=button]')
-        await page.waitForSelector('ant-slider-handle')
+        await page.waitForSelector('.filters-container')
 
-
-        // hover
-        // await page.hover('.ant-slider-handle')
-        // await page.screenshot({ path: 'hover.png' })
-        // slider
-        const e = await page.$('ant-slider-handle')
-        const box = await e.boundingBox();
         
-        await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-        await page.mouse.down("right");
-        await page.mouse.move(0, 100); // move to (100, 200) coordinates
-        await page.mouse.up();
+        // slider
+        // const e = await page.$('[role=slider]')
+        // const box = await e.boundingBox();
+        
+        // await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+        // await page.mouse.down("right");
+        // await page.mouse.move(0, 100); // move to (100, 200) coordinates
+        // await page.mouse.up();
+
+        // Drags the mouse from a point
+        // await page.mouse.move(0, 0);
+        // await page.mouse.down();
+        
+        // // Drops the mouse to another point
+        // await page.mouse.move(100, 100);
+        // await page.mouse.up();
+
 
         await page.screenshot({ path: 'save.png' })
 
