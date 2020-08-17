@@ -33,9 +33,16 @@ try {
         await page.type('.ant-select-selection-search-input', 'aisa')
         await page.waitForSelector('.ant-select-selection-item')
 
+        // select an option
+        await page.click('.ant-select-selection-item')
+        await page.waitForSelector('.d-component-button')
 
+        // click the save button
+        await page.click('.d-component-button')
+        await page.waitForSelector('.ant-message')
+        
         await page.screenshot({ path: 'save.png' })
-
+        
         await browser.close()
     })();
 } catch(err) {
