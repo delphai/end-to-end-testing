@@ -43,6 +43,11 @@ try {
         
         await page.screenshot({ path: 'save.png' })
         
+        // portfolio
+        await page.click('.profile-portfolio-wrapper')
+        await page.waitForSelector('.ant-table-content')
+        await page.screenshot({ path: 'portfolio.png' })
+
         await browser.close()
     })();
 } catch(err) {
