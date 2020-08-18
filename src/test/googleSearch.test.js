@@ -1,16 +1,13 @@
 const timeout = process.env.SLOWMO ? 30000 : 10000;
 
-// beforeAll(async () => {
-//   await page.goto('https://google.com');
-// });
 describe('Test Google search functionality', () => {
   beforeAll(async () => {
     await page.goto('https://google.com')
   });
 
-  test('Title should be "Google"', async () => {
+  test('title should be "Google"', async () => {
     await expect(page.title()).resolves.toMatch('Google')
-  })
+  }, timeout)
 
   test('should search', async () => {
     await page.type('.gLFyf', 'delphai')
@@ -21,7 +18,13 @@ describe('Test Google search functionality', () => {
     }, '(//input[@class="gNO89b"])[2]')
     
     await page.waitForNavigation()
-    await expect(page.title()).resolves.toMatch('delphai - Google Suche');
+    await expect(page.title()).resolves.toContain('delphai');
   }, timeout);
+
+  test('should click on the first link', async () => {
+    await page.click('.LC20lb')
+    await page.waitForNavigation()
+    await expect(page.title()).resolves.toContain('delphai');
+  }, timeout)
 });
 
