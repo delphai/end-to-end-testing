@@ -1,6 +1,6 @@
 const timeout = process.env.SLOWMO ? 30000 : 10000;
 
-describe('Test Google search functionality', () => {
+describe('test Google search functionality', () => {
   beforeAll(async () => {
     await page.goto('https://google.com')
   });
