@@ -4,7 +4,7 @@ module.exports = {
       URL: "http://www.google.com"
     },
     testMatch: [
-      "**/test/**/*.test.ts"
+      "**/test/**/*.test.js"
     ],
     verbose: true
 }
