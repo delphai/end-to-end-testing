@@ -21,7 +21,7 @@ describe("test Google search functionality", () => {
   test("should click the first link", async () => {
     await page.click('.LC20lb')
     const firstLink = await page.waitForNavigation()
-    await expect(firstLink).toBeTruthy()
+    expect(firstLink).toBeTruthy()
   }, timeout)
 });
 

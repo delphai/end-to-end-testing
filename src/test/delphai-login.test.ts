@@ -16,8 +16,6 @@ describe('test delphai login functionality', () => {
         await page.type('[type=password]', 'delphai123!')
         await page.click('button')
         const selector = await page.waitForSelector('.toolbar-mylist-link')
-        await expect(selector).toBeTruthy()
+        expect(selector).toBeTruthy()
     }, timeout)
-
-
 })

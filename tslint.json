@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "./src/contracts"
+    ]
+  },
+  "rulesDirectory": [
+    "tslint-plugin-prettier"
+  ],
+  "rules": {
+    "prettier": true,
+    "no-bitwise": false,
+    "max-classes-per-file": false,
+    "object-literal-sort-keys": false,
+    "no-implicit-dependencies": [
+      true,
+      "dev"
+    ],
+    "jsx-no-lambda": false,
+    "no-submodule-imports": false,
+    "no-unused-expression": false,
+    "variable-name": [
+      true,
+      "allow-leading-underscore",
+      "allow-pascal-case"
+    ]
+  }
+}
