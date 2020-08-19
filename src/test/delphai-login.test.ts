@@ -1,5 +1,4 @@
-export{}
-let timeout = process.env.SLOWMO ? 30000 : 10000
+const timeout = process.env.SLOWMO ? 30000 : 10000
 
 describe('test delphai login functionality', () => {
     beforeAll(async () => {
@@ -19,3 +18,5 @@ describe('test delphai login functionality', () => {
         expect(selector).toBeTruthy()
     }, timeout)
 })
+
+export{}

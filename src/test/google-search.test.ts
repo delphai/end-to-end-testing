@@ -1,4 +1,3 @@
-export{}
 const timeout = process.env.SLOWMO ? 30000 : 10000
 
 describe("test Google search functionality", () => {
@@ -25,4 +24,6 @@ describe("test Google search functionality", () => {
     expect(firstLink).toBeTruthy()
   }, timeout)
 });
+
+export{}
 
