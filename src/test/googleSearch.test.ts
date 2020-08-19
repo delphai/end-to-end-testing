@@ -11,17 +11,17 @@ describe("test Google search functionality", () => {
 
   test("should search 'delphai'", async () => {
     await page.type('.gLFyf', 'delphai')
-    await page.waitForXPath('(//input[@class="gNO89b"])')
+    await page.waitForXPath('//input[@class="gNO89b"]')
     const element = await page.$x('(//input[@class="gNO89b"])')
     await element[1].click()
     await page.waitForNavigation()
-    await expect(page.title()).resolves.toContain('delphai');
+    await expect(page.title()).resolves.toContain('delphai'|| 'Delphai');
   }, timeout);
 
-  test("should click on the first link", async () => {
+  test("should click the first link", async () => {
     await page.click('.LC20lb')
-    await page.waitForNavigation()
-    await expect(page.title()).resolves.toContain('delphai');
+    const firstLink = await page.waitForNavigation()
+    await expect(firstLink).toBeTruthy()
   }, timeout)
 });
 
