@@ -1,10 +1,10 @@
 module.exports = {
-    preset: "jest-puppeteer",
-    globals: {
-      URL: "http://www.google.com"
-    },
-    testMatch: [
-      "**/test/**/*.test.js"
-    ],
-    verbose: true
+	preset: 'jest-puppeteer',
+	testMatch: ["**/?(*.)+(spec|test).[t]s"],
+	testPathIgnorePatterns: ['/node_modules/', 'dist'], // 
+	setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+	transform: {
+		"^.+\\.ts?$": "ts-jest"
+	},
+  
 }

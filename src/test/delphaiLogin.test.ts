@@ -1,4 +1,5 @@
-const timeout = process.env.SLOWMO ? 30000 : 10000;
+export {}
+let timeout = process.env.SLOWMO ? 30000 : 10000
 
 describe('test delphai login functionality', () => {
     beforeAll(async () => {
@@ -11,8 +12,8 @@ describe('test delphai login functionality', () => {
 
     test('should login', async () => {
         await page.goto('https://app.delphai.com')
-        await page.type( '[type=text]', 'jean@delphai.com')
-        await page.type('[type=password]', '852r456d!Q')
+        await page.type( '[type=text]', 'delphai_test@delphai.com')
+        await page.type('[type=password]', 'delphai123!')
         await page.click('button')
         const selector = await page.waitForSelector('.toolbar-mylist-link')
         await expect(selector).toBeTruthy()
