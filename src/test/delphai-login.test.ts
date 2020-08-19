@@ -1,4 +1,4 @@
-export {}
+export{}
 let timeout = process.env.SLOWMO ? 30000 : 10000
 
 describe('test delphai login functionality', () => {

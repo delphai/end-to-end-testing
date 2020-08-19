@@ -1,6 +1,34 @@
+// {
+//     "compilerOptions": {
+//         "lib": ["dom"],
+//         // "types": ["node"]
+//     }
+// }
+
 {
     "compilerOptions": {
-        "lib": ["dom"],
-        // "types": ["node"]
+      "target": "esnext",
+      "outDir": "./build",
+      "baseUrl": "./src",
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "noImplicitAny": false,
+      "allowJs": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "isolatedModules": true,
+      "noEmit": false,
+      "pretty": true,
+      "jsx": "react"
     }
-}
+  }
