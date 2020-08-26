@@ -33,22 +33,23 @@ describe('test delphai search', () => {
         await elements[0].click()
         const dropdown = await page.waitForXPath('//div[@class="filter-dropdown-option filter-search-bar"]')
         expect(dropdown).toBeTruthy
-    })
+    }, timeout)
 
     test('should search in the dropdown', async () => {
-        const search = await page.$x('//span[@class="ant-input-search d-filter-dropdown-search ant-input-affix-wrapper"]')
+        const search = await page.$x('//input[@class="ant-input"]')
         // console.log(search)
         await search[0].type('asia')
         const searchResult = await page.waitForXPath('//span[@class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"]')
-        await page.screenshot({ path: 'searchResult.png' })
+        await page.screenshot({ path: '1.png' })
         expect(searchResult).toBeTruthy
-    })
+    }, timeout)
 
     // test('should click on a checkbox', async () => {
     //     const checkbox = await page.$x('//span[@class="ant-select-tree-checkbox-inner"]')
     //     await checkbox[0].click()
-    //     await page.screenshot({ path: 'searchResult.png' })
-    //     expect(checkbox).toContain('asia')
-    // })
+    //     await page.waitForNavigation()
+    //     const ss = await page.screenshot({ path: '2.png' })
+    //     expect(ss).toBeTruthy
+    // }, timeout)
 })
 
