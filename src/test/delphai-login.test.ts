@@ -37,7 +37,6 @@ describe('test delphai search', () => {
 
     test('should search in the dropdown', async () => {
         const search = await page.$x('//input[@class="ant-input"]')
-        // console.log(search)
         await search[0].type('asia')
         const searchResult = await page.waitForXPath('//span[@class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"]')
         expect(searchResult).toBeTruthy
