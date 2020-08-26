@@ -40,7 +40,6 @@ describe('test delphai search', () => {
         // console.log(search)
         await search[0].type('asia')
         const searchResult = await page.waitForXPath('//span[@class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"]')
-        await page.screenshot({ path: 'dropdownSearchResult.png' })
         expect(searchResult).toBeTruthy
     }, timeout)
 
@@ -48,7 +47,6 @@ describe('test delphai search', () => {
         const checkbox = await page.$x('//span[@class="ant-select-tree-checkbox-inner"]')
         await checkbox[0].click()
         const clicked = await page.waitForXPath('//button[@class="ant-btn text-font-style rounded-corners-btn applied-filter-btn ant-btn-default"]')
-        await page.screenshot({ path: '2.png' })
         expect(clicked).toBeTruthy
     }, timeout)
 
