@@ -26,5 +26,13 @@ describe('test delphai search', () => {
         const searchDropdown = await page.waitForSelector('.filters')
         expect(searchDropdown).toBeTruthy
     }, timeout)
+
+    test('should open dropdown', async () => {
+        await page.waitForXPath('//span[@class="ant-select-selection-placeholder"]')
+        const elements = await page.$x('//span[@class="ant-select-selection-placeholder"]')
+        await elements[0].click()
+        const dropdown = await page.waitForXPath('//div[@class="filter-dropdown-option filter-search-bar"]')
+        expect(dropdown).toBeTruthy
+    })
 })
 
