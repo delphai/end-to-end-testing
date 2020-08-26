@@ -1,13 +1,9 @@
-const timeout = process.env.SLOWMO ? 30000 : 10000
+export const timeout = process.env.SLOWMO ? 30000 : 10000
 
-describe('test delphai login functionality', () => {
+describe('test delphai search', () => {
     beforeAll(async () => {
         await page.goto('https://app.delphai.com/')
     })
-
-    test('title should be "delphai"', async () => {
-        await expect(page.title()).resolves.toMatch('delphai')
-    }, timeout)
 
     test('should login', async () => {
         await page.goto('https://app.delphai.com')
@@ -17,6 +13,15 @@ describe('test delphai login functionality', () => {
         const selector = await page.waitForSelector('.toolbar-mylist-link')
         expect(selector).toBeTruthy()
     }, timeout)
+
+    test('should search', async () => {
+        await page.type('[type=text]', 'green engergy')
+        const resultPage = await page.waitForSelector('.default-toolbar')
+        expect(resultPage).toBeTruthy
+    }, timeout)
+
+    test('should open filters', async () => {
+        
+    })
 })
 
-export{}
