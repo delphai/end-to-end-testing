@@ -40,16 +40,23 @@ describe('test delphai search', () => {
         // console.log(search)
         await search[0].type('asia')
         const searchResult = await page.waitForXPath('//span[@class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"]')
-        await page.screenshot({ path: '1.png' })
+        await page.screenshot({ path: 'dropdownSearchResult.png' })
         expect(searchResult).toBeTruthy
     }, timeout)
 
-    // test('should click on a checkbox', async () => {
-    //     const checkbox = await page.$x('//span[@class="ant-select-tree-checkbox-inner"]')
-    //     await checkbox[0].click()
-    //     await page.waitForNavigation()
-    //     const ss = await page.screenshot({ path: '2.png' })
-    //     expect(ss).toBeTruthy
-    // }, timeout)
+    test('should click on a checkbox', async () => {
+        const checkbox = await page.$x('//span[@class="ant-select-tree-checkbox-inner"]')
+        await checkbox[0].click()
+        const clicked = await page.waitForXPath('//button[@class="ant-btn text-font-style rounded-corners-btn applied-filter-btn ant-btn-default"]')
+        await page.screenshot({ path: '2.png' })
+        expect(clicked).toBeTruthy
+    }, timeout)
+
+    test('should save a search result', async () => {
+        const saveSearchBtn = await page.$x('//button[@class="ant-btn d-component-button ant-btn-default"]')
+        await saveSearchBtn[0].click()
+        const msg = await page.waitForXPath('//div[@class="ant-message-notice-content"]')
+        expect(msg).toBeTruthy
+    }, timeout)
 })
 
