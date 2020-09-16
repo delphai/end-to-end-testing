@@ -57,5 +57,21 @@ describe('test delphai search', () => {
         await page.screenshot({ path: 'result.png' })
         expect(msg).toBeTruthy
     }, timeout)
+
+    test('should click first tab', async () => {
+        const taps = await page.$x('//div[@class="ant-tabs-tab-btn"]')
+        await taps[1].click()
+        await page.waitForXPath('//canvas[@data-zr-dom-id="zr_0"]')
+        await page.setViewport({width:1200,height:1000})
+        await page.screenshot({ path: 'tab1.png' })
+    }, timeout)
+
+    test('should click second tab', async () => {
+        const taps = await page.$x('//div[@class="ant-tabs-tab-btn"]')
+        await taps[2].click()
+        await page.waitForXPath('//canvas[@data-zr-dom-id="zr_0"]')
+        await page.setViewport({width:1200,height:1000})
+        await page.screenshot({ path: 'tab2.png' })
+    }, timeout)
 })
 
