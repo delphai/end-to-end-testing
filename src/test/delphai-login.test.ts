@@ -88,5 +88,13 @@ describe('test delphai search', () => {
         await page.screenshot({ path: 'modal.png' })
         expect(modal).toBeTruthy
     }, timeout)
+
+    test('should choose a label', async () => {
+        const labels = await page.$x('//div[@class="ant-select-selector"]')
+        await labels[1].click()
+        const firstLabel = await page.waitForXPath('//div[@class="ant-select-item ant-select-item-option select-dropdown-option ant-select-item-option-active"]')
+        await firstLabel[0].click()
+        expect(firstLabel).toBeTruthy
+    })
 })
 
