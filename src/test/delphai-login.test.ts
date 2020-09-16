@@ -15,7 +15,7 @@ describe('test delphai search', () => {
     }, timeout)
 
     test('should search', async () => {
-        await page.type('[type=text]', 'green house')
+        await page.type('[type=text]', 'gogoro')
         await page.click('.d-component-search-icon')
         const searchResult = await page.waitForSelector('.main-container');
         expect(searchResult).toBeTruthy
@@ -53,6 +53,8 @@ describe('test delphai search', () => {
         const saveSearchBtn = await page.$x('//button[@class="ant-btn d-component-button ant-btn-default"]')
         await saveSearchBtn[0].click()
         const msg = await page.waitForXPath('//div[@class="ant-message-notice-content"]')
+        await page.setViewport({width:1200,height:1000})
+        await page.screenshot({ path: 'result.png' })
         expect(msg).toBeTruthy
     }, timeout)
 })
