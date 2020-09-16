@@ -62,7 +62,7 @@ describe('test delphai search', () => {
         const taps = await page.$x('//div[@class="ant-tabs-tab-btn"]')
         await taps[1].click()
         await page.waitForXPath('//canvas[@data-zr-dom-id="zr_0"]')
-        await page.setViewport({width:1200,height:1000})
+        await page.setViewport({ width:1200, height:1000 })
         await page.screenshot({ path: 'tab1.png' })
     }, timeout)
 
@@ -70,8 +70,23 @@ describe('test delphai search', () => {
         const taps = await page.$x('//div[@class="ant-tabs-tab-btn"]')
         await taps[2].click()
         await page.waitForXPath('//canvas[@data-zr-dom-id="zr_0"]')
-        await page.setViewport({width:1200,height:1000})
+        await page.setViewport({ width:1200, height:1000 })
         await page.screenshot({ path: 'tab2.png' })
+    }, timeout)
+
+    test('should click the checkbox', async () => {
+        const checkboxes = await page.$x('//input[@class="ant-checkbox-input"]')
+        await checkboxes[1].click()
+        const button = await page.$x('//button[@class="ant-btn table-title-save-btn ant-btn-default"]')
+        const buttonClicked = await button[0].click()
+        expect(buttonClicked).toBeTruthy
+    }, timeout)
+
+    test('modal should show up', async () => {
+        const modal = await page.$x('//div[@class="ant-modal-body"]')
+        await page.setViewport({ width:1200, height:1000 })
+        await page.screenshot({ path: 'modal.png' })
+        expect(modal).toBeTruthy
     }, timeout)
 })
 
